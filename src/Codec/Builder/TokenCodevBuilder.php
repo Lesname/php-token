@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Codec\Builder;
+namespace LesToken\Codec\Builder;
 
-use LessToken\Codec\TokenCodec;
+use LesToken\Codec\TokenCodec;
 
 interface TokenCodevBuilder
 {

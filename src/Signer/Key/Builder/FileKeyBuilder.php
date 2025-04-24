@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer\Key\Builder;
+namespace LesToken\Signer\Key\Builder;
 
-use LessToken\Signer\Key\FileKey;
-use LessToken\Signer\Key\Key;
+use LesToken\Signer\Key\FileKey;
+use LesToken\Signer\Key\Key;
 
 final class FileKeyBuilder implements KeyBuilder
 {

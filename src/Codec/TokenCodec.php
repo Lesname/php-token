@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Codec;
+namespace LesToken\Codec;
 
-use LessValueObject\Number\Int\Date\Timestamp;
+use LesValueObject\Number\Int\Date\Timestamp;
 
 interface TokenCodec
 {

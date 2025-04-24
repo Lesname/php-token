@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer\Builder;
+namespace LesToken\Signer\Builder;
 
-use LessToken\Signer\Key\KeyHelper;
-use LessToken\Signer\RsaSigner;
-use LessToken\Signer\Signer;
+use LesToken\Signer\Key\KeyHelper;
+use LesToken\Signer\RsaSigner;
+use LesToken\Signer\Signer;
 
 final class RsaSignerBuilder implements SignerBuilder
 {

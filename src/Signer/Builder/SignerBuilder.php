@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer\Builder;
+namespace LesToken\Signer\Builder;
 
-use LessToken\Signer\Signer;
+use LesToken\Signer\Signer;
 
 interface SignerBuilder
 {

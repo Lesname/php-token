@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer;
+namespace LesToken\Signer;
 
-use LessToken\Signer\Builder\SignerBuilder;
+use LesToken\Signer\Builder\SignerBuilder;
 
 final class SignerHelper
 {

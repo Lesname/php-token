@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Codec\Builder;
+namespace LesToken\Codec\Builder;
 
-use LessToken\Codec\JwtTokenCodec;
-use LessToken\Codec\TokenCodec;
-use LessToken\Signer\SignerHelper;
+use LesToken\Codec\JwtTokenCodec;
+use LesToken\Codec\TokenCodec;
+use LesToken\Signer\SignerHelper;
 
 final class JwtTokenCodevBuilder implements TokenCodevBuilder
 {

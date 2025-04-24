@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer\Key;
+namespace LesToken\Signer\Key;
 
-use LessToken\Signer\Key\Builder\KeyBuilder;
+use LesToken\Signer\Key\Builder\KeyBuilder;
 
 final class KeyHelper
 {
