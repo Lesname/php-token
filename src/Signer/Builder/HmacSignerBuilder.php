@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer\Builder;
+namespace LesToken\Signer\Builder;
 
-use LessToken\Signer\HmacSigner;
-use LessToken\Signer\Key\KeyHelper;
-use LessToken\Signer\Signer;
+use LesToken\Signer\HmacSigner;
+use LesToken\Signer\Key\KeyHelper;
+use LesToken\Signer\Signer;
 
 final class HmacSignerBuilder implements SignerBuilder
 {

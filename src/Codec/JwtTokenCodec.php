@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Codec;
+namespace LesToken\Codec;
 
 use JsonException;
-use LessToken\Codec\Exception\InvalidFormat;
-use LessToken\Codec\Exception\InvalidSignature;
-use LessToken\Signer\Signer;
-use LessValueObject\Number\Int\Date\Timestamp;
+use LesToken\Codec\Exception\InvalidFormat;
+use LesToken\Codec\Exception\InvalidSignature;
+use LesToken\Signer\Signer;
+use LesValueObject\Number\Int\Date\Timestamp;
 use RuntimeException;
 use Throwable;
 
@@ -16,6 +16,9 @@ final class JwtTokenCodec implements TokenCodec
     public function __construct(private readonly Signer $signer)
     {}
 
+    /**
+     * @throws JsonException
+     */
     public function encode(mixed $data, Timestamp $expire): string
     {
         if (!is_array($data)) {
@@ -29,7 +32,7 @@ final class JwtTokenCodec implements TokenCodec
 
         $data['nbf'] = time();
         $data['iat'] = time();
-        $data['exp'] = $expire->getValue();
+        $data['exp'] = $expire->value;
 
         $partial = $this->urlEncode($this->jsonEncode($header))
             . '.' . $this->urlEncode($this->jsonEncode($data));
@@ -114,7 +117,7 @@ final class JwtTokenCodec implements TokenCodec
      */
     private function jsonEncode(mixed $input): string
     {
-        return json_encode($input, flags: JSON_THROW_ON_ERROR);
+        return json_encode($input, flags: JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES);
     }
 
     /**

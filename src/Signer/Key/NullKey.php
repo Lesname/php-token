@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer\Key;
+namespace LesToken\Signer\Key;
 
 use RuntimeException;
 

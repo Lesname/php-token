@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer;
+namespace LesToken\Signer;
 
 use RuntimeException;
-use LessToken\Signer\Key\Key;
+use LesToken\Signer\Key\Key;
 
 final class RsaSigner extends AbstractSigner
 {

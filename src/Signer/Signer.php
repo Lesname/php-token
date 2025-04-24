@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LessToken\Signer;
+namespace LesToken\Signer;
 
 interface Signer
 {
