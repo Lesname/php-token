@@ -3,14 +3,11 @@ declare(strict_types=1);
 
 namespace LesToken\Codec\Builder;
 
-use LesToken\Codec\JwtTokenCodec;
 use LesToken\Codec\TokenCodec;
 use LesToken\Signer\SignerHelper;
+use LesToken\Codec\JwtTokenCodec;
 
-/**
- * @deprecated use JwtTokenCodecBuilder
- */
-final class JwtTokenCodevBuilder implements TokenCodevBuilder
+final class JwtTokenCodecBuilder implements TokenCodevBuilder
 {
     /**
      * @param array<mixed> $config

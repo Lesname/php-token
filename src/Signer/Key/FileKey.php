@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace LesToken\Signer\Key;
 
+use RuntimeException;
+
 /**
  * @psalm-immutable
  */
@@ -16,11 +18,19 @@ final class FileKey implements Key
      */
     public function __toString(): string
     {
-        assert(file_exists($this->file));
-        assert(is_readable($this->file));
+        if (!file_exists($this->file)) {
+            throw new RuntimeException("File {$this->file} does not exist");
+        }
+
+        if (!is_readable($this->file)) {
+            throw new RuntimeException("File {$this->file} is not readable");
+        }
 
         $contents = file_get_contents($this->file);
-        assert(is_string($contents));
+
+        if (false === $contents) {
+            throw new RuntimeException("Reading {$this->file} failed");
+        }
 
         return $contents;
     }
