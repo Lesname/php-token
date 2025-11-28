@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace LesToken\Codec\Builder;
 
+use Override;
 use LesToken\Codec\TokenCodec;
 use LesToken\Signer\SignerHelper;
 use LesToken\Codec\JwtTokenCodec;
@@ -12,6 +14,7 @@ final class JwtTokenCodecBuilder implements TokenCodevBuilder
     /**
      * @param array<mixed> $config
      */
+    #[Override]
     public function build(array $config): TokenCodec
     {
         assert(is_array($config['signer']));

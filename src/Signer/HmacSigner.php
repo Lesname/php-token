@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace LesToken\Signer;
 
+use Override;
 use LesToken\Signer\Key\Key;
 
 final class HmacSigner extends AbstractSigner
@@ -14,16 +16,19 @@ final class HmacSigner extends AbstractSigner
         parent::__construct($algorithm);
     }
 
+    #[Override]
     public function sign(string $data): string
     {
         return hash_hmac($this->getAlgorithm(), $data, (string)$this->key, true);
     }
 
+    #[Override]
     public function verify(string $data, string $signature): bool
     {
         return hash_equals($this->sign($data), $signature);
     }
 
+    #[Override]
     public function getEncryptionName(): string
     {
         return 'hmac';
