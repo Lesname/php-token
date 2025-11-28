@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace LesToken\Codec;
 
+use Override;
 use JsonException;
 use LesToken\Codec\Exception\InvalidFormat;
 use LesToken\Codec\Exception\InvalidSignature;
@@ -19,6 +21,7 @@ final class JwtTokenCodec implements TokenCodec
     /**
      * @throws JsonException
      */
+    #[Override]
     public function encode(mixed $data, Timestamp $expire): string
     {
         if (!is_array($data)) {
@@ -45,6 +48,7 @@ final class JwtTokenCodec implements TokenCodec
      * @throws InvalidFormat
      * @throws InvalidSignature
      */
+    #[Override]
     public function decode(string $token): mixed
     {
         if (preg_match('#^([a-zA-Z\d_-]+)\.([a-zA-Z\d_-]+)\.([a-zA-Z\d_-]+)$#', $token, $matches) !== 1) {

@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace LesToken\Signer;
 
+use Override;
 use RuntimeException;
 use LesToken\Signer\Key\Key;
 
@@ -16,15 +18,21 @@ final class RsaSigner extends AbstractSigner
         parent::__construct($algorithm);
     }
 
+    #[Override]
     public function sign(string $data): string
     {
-        openssl_sign(
+        $success = openssl_sign(
             $data,
             $signature,
             (string)$this->keyPrivate,
             $this->getAlgorithm(),
         );
 
+        if ($success === false) {
+            throw new RuntimeException();
+        }
+
+        /** @psalm-suppress TypeDoesNotContainType */
         if (!is_string($signature)) {
             throw new RuntimeException();
         }
@@ -32,6 +40,7 @@ final class RsaSigner extends AbstractSigner
         return $signature;
     }
 
+    #[Override]
     public function verify(string $data, string $signature): bool
     {
         return openssl_verify(
@@ -42,6 +51,7 @@ final class RsaSigner extends AbstractSigner
         ) === 1;
     }
 
+    #[Override]
     public function getEncryptionName(): string
     {
         return 'rsa';
